@@ -1,0 +1,29 @@
+cd /etc/apache2/sites-available
+sudo nano magento2.conf
+<VirtualHost *:80>
+    ServerAdmin admin@magento.loc
+    DocumentRoot /home/roman/work/magento2
+    ServerName magento.loc
+    <Directory "/home/roman/work/magento2">
+        Options Indexes FollowSymLinks
+        AllowOverride all
+        Order Deny,Allow
+        Allow from all
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+sudo a2ensite magento2.conf
+sudo service apache2 restart
+
+sudo nano /etc/hosts
+127.0.0.1       magento.loc
+
+install php storm
+https://plugins.jetbrains.com/plugin/7622-php-inspections-ea-extended-
+install plugin
+
+mysql user creation
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'magento'@'localhost';
+FLUSH PRIVILEGES;
