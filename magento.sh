@@ -1,5 +1,5 @@
 git clone https://github.com/magento/magento2.git . &&
-sudo nano install composer -Y &&
+sudo apt install composer -Y &&
 
 sudo usermod -a -G www-data  roman &&
 sudo usermod -a -G roman www-data &&
