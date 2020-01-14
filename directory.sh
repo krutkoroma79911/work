@@ -1,3 +1,2 @@
-mkdir ~/work
-mkdir ~/work/magento2
-cd ~/work/magento2
+mkdir ~/magento2
+cd ~/magento2

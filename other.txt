@@ -1,10 +1,13 @@
 cd /etc/apache2/sites-available
 sudo nano magento2.conf
+
+Вставити код нижче в файл і зберегти його
+
 <VirtualHost *:80>
     ServerAdmin admin@magento.loc
-    DocumentRoot /home/roman/work/magento2
+    DocumentRoot /home/roman/magento2
     ServerName magento.loc
-    <Directory "/home/roman/work/magento2">
+    <Directory "/home/roman/magento2">
         Options Indexes FollowSymLinks
         AllowOverride all
         Order Deny,Allow
@@ -15,6 +18,7 @@ sudo nano magento2.conf
 
 sudo a2ensite magento2.conf
 sudo service apache2 restart
+sudo a2enmod rewrite
 
 sudo nano /etc/hosts
 127.0.0.1       magento.loc
@@ -23,7 +27,13 @@ install php storm
 https://plugins.jetbrains.com/plugin/7622-php-inspections-ea-extended-
 install plugin
 
-mysql user creation
+Створюємо юзера в базі данних
+
+sudo mysql -u root
+
 CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON *.* TO 'magento'@'localhost';
 FLUSH PRIVILEGES;
+
+Перезагружаємо комп'ютер
+sudo reboot
